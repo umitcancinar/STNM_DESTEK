@@ -8,6 +8,12 @@ const defaultData = {
         { id: 'proj1', title: 'Savunma sanayi projeleri', image: 'https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png', desc: 'Milli savunma hamlesine bizler de katılıyor, okulumuzda öğrendiğimiz bilgileri pratiğe dökerek hayata geçiriyoruz.', link: '#' },
         { id: 'proj2', title: 'Akıllı Savaş Teknolojileri', image: 'https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png', desc: 'IoT tabanlı sensörlerle silahlarımızın verimliliğini artıran entegre otomasyon sistemi.', link: '#' }
     ],
+    tasks: [
+        { id: 'task1', title: 'Görev 1 — Web Teknolojileri Araştırma Raporu ve Uygulaması', image: 'https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png', desc: 'Web geliştirme alanında ileri seviye bir framework seçilerek detaylı bir araştırma raporu ve uygulama.', link: '#' },
+        { id: 'task2', title: 'Görev 2 — Görüntü İşleme Araştırma Raporu', image: 'https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png', desc: 'Görüntü işleme kavramlarının veya algoritmalarının detaylı raporlandırması.', link: '#' },
+        { id: 'task3', title: 'Görev 3 — Simülasyon / Robotik Araştırma Raporu', image: 'https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png', desc: 'Simülasyon veya robotik alanında bir sistem, yöntem raporlandırması.', link: '#' },
+        { id: 'task4', title: 'Görev 4 — Gömülü Sistemler Araştırma Raporu', image: 'https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png', desc: 'Gömülü sistemler mimarisine ve donanıma dair kavramsal raporlama görevi.', link: '#' }
+    ],
     about: `<p><strong>STNM</strong> olarak misyonumuz, savunma sanayi ürünlerine öğrendiğimiz teorik bilgileri pratiğe dönüştürerek katkı sağlamaktır.</p>
             <p>Uzman kadromuzla birlikte, başta TÜBİTAK ve TEKNOFEST olmak üzere birçok ulusal ve uluslararası platformda projeler yürütmekteyiz. Geleceğin teknolojilerini geliştiren gençlerle ülkemiz savunma sanayine katkı sunmak en büyük tutkumuzdur.</p>`,
     contact: {
@@ -146,9 +152,9 @@ class App {
     }
 
     renderAll() {
-        const data = this.getData();
         this.renderApplications(data.applications);
         this.renderProjects(data.projects);
+        this.renderTasks(data.tasks);
         this.renderAbout(data.about);
         this.renderContact(data.contact);
 
@@ -200,6 +206,31 @@ class App {
                     <div class="card-footer">
                         <a href="${proj.link === '#' ? 'javascript:void(0)' : proj.link}" ${proj.link !== '#' ? 'target="_blank"' : ''} class="btn btn-primary w-100">
                             İncele <i class="ri-arrow-right-up-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    renderTasks(tasksList) {
+        const container = document.getElementById('tasks-container');
+        if (!tasksList || tasksList.length === 0) {
+            container.innerHTML = '<p class="text-center w-100">Şu an gösterilecek görevlendirme bulunmamaktadır.</p>';
+            return;
+        }
+
+        container.innerHTML = tasksList.map(task => `
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="${task.image}" alt="${task.title}">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">${task.title}</h3>
+                    <p class="card-desc">${task.desc}</p>
+                    <div class="card-footer">
+                        <a href="${task.link === '#' ? 'javascript:void(0)' : task.link}" ${task.link !== '#' ? 'target="_blank"' : ''} class="btn btn-primary w-100">
+                            Görevi İncele <i class="ri-arrow-right-up-line"></i>
                         </a>
                     </div>
                 </div>
@@ -375,6 +406,18 @@ class Admin {
                 </td>
             </tr>
         `).join('');
+
+        const taskList = document.getElementById('admin-tasks-list');
+        taskList.innerHTML = (data.tasks || []).map(item => `
+            <tr>
+                <td>${item.title}</td>
+                <td>${item.link}</td>
+                <td class="action-btns">
+                    <button class="btn btn-secondary icon-btn" style="width:30px;height:30px;font-size:1rem;" onclick="admin.editItem('task', '${item.id}')" title="Düzenle"><i class="ri-edit-line"></i></button>
+                    <button class="btn btn-danger icon-btn" style="width:30px;height:30px;font-size:1rem;" onclick="admin.deleteItem('task', '${item.id}')" title="Sil"><i class="ri-delete-bin-line"></i></button>
+                </td>
+            </tr>
+        `).join('');
     }
 
     openItemForm(type, item = null) {
@@ -390,6 +433,10 @@ class Admin {
             titleEl.textContent = item ? 'Başvuru Düzenle' : 'Yeni Başvuru Ekle';
             linkLabel.textContent = 'WhatsApp Numarası';
             linkHint.textContent = 'Örn: 905551234567 (Sadece rakam, başında + olmadan)';
+        } else if (type === 'task') {
+            titleEl.textContent = item ? 'Görev Düzenle' : 'Yeni Görev Ekle';
+            linkLabel.textContent = 'Görev Linki / Kaynağı';
+            linkHint.textContent = 'Örn: Link yoksa # bırakın';
         } else {
             titleEl.textContent = item ? 'Proje Düzenle' : 'Yeni Proje Ekle';
             linkLabel.textContent = 'Proje Linki';
@@ -411,7 +458,9 @@ class Admin {
 
     editItem(type, id) {
         const data = app.getData();
-        const array = type === 'application' ? data.applications : data.projects;
+        let array = data.projects;
+        if (type === 'application') array = data.applications;
+        if (type === 'task') array = data.tasks;
         const item = array.find(i => i.id === id);
         if (item) {
             this.openItemForm(type, item);
@@ -423,6 +472,8 @@ class Admin {
             const data = app.getData();
             if (type === 'application') {
                 data.applications = data.applications.filter(i => i.id !== id);
+            } else if (type === 'task') {
+                data.tasks = data.tasks.filter(i => i.id !== id);
             } else {
                 data.projects = data.projects.filter(i => i.id !== id);
             }
@@ -443,7 +494,11 @@ class Admin {
             link: document.getElementById('item-link').value
         };
 
-        const array = type === 'application' ? data.applications : data.projects;
+        if (!data.tasks) data.tasks = [];
+        let array = data.projects;
+        if (type === 'application') array = data.applications;
+        if (type === 'task') array = data.tasks;
+
         const index = array.findIndex(i => i.id === id);
 
         if (index !== -1) {

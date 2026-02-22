@@ -39,6 +39,8 @@
                             data-target="aktif-basvurular">Aktif Başvurular</a></li>
                     <li><a href="#" onclick="app.navigate('projelerimiz')" class="nav-item"
                             data-target="projelerimiz">Projelerimiz</a></li>
+                    <li><a href="#" onclick="app.navigate('gorevlendirmeler')" class="nav-item"
+                            data-target="gorevlendirmeler">Görevlendirmeler</a></li>
                     <li><a href="#" onclick="app.navigate('hakkimizda')" class="nav-item"
                             data-target="hakkimizda">Hakkımızda</a></li>
                     <li><a href="#" onclick="app.navigate('iletisim')" class="nav-item"
@@ -99,6 +101,17 @@
                     <p>Tamamlanmış ve devam eden yenilikçi projelerimize göz atın.</p>
                 </div>
                 <div id="projects-container" class="grid-container"></div>
+            </div>
+        </section>
+
+        <!-- Görevlendirmeler Section -->
+        <section id="gorevlendirmeler" class="page-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="gradient-text">Görevlendirmeler</h2>
+                    <p>Tamamlanması beklenen güncel görev listesi ve detayları.</p>
+                </div>
+                <div id="tasks-container" class="grid-container"></div>
             </div>
         </section>
 
@@ -190,6 +203,8 @@
                         Aktif Başvurular</li>
                     <li onclick="admin.switchTab('admin-projeler')"><i class="ri-briefcase-4-line"></i> Projelerimiz
                     </li>
+                    <li onclick="admin.switchTab('admin-gorevler')"><i class="ri-task-line"></i> Görevlendirmeler
+                    </li>
                     <li onclick="admin.switchTab('admin-hakkimizda')"><i class="ri-information-line"></i> Hakkımızda
                     </li>
                     <li onclick="admin.switchTab('admin-iletisim')"><i class="ri-contacts-book-line"></i> İletişim</li>
@@ -234,6 +249,25 @@
                                 </tr>
                             </thead>
                             <tbody id="admin-projects-list"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="admin-gorevler" class="admin-tab">
+                    <div class="admin-header">
+                        <h2>Görev Yönetimi</h2><button class="btn btn-success" onclick="admin.openItemForm('task')"><i
+                                class="ri-add-line"></i> Yeni Ekle</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Başlık</th>
+                                    <th>Link</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-tasks-list"></tbody>
                         </table>
                     </div>
                 </div>
