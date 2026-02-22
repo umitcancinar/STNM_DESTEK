@@ -249,8 +249,8 @@ class App {
 class Admin {
     constructor() {
         this.isLoggedIn = sessionStorage.getItem('admin_logged_in') === 'true';
-        this.USERNAME = 'umitcnr1';
-        this.PASSWORD = 'stnm2323';
+        this.EXPECTED_USER_HASH = 'g05tco';
+        this.EXPECTED_PASS_HASH = '-xjy3tb';
 
         this.bindEvents();
 
@@ -293,12 +293,20 @@ class Admin {
         });
     }
 
+    hashStr(s) {
+        let k = 5381;
+        for (let i = 0; i < s.length; i++) {
+            k = ((k << 5) + k) + s.charCodeAt(i);
+        }
+        return k.toString(36);
+    }
+
     handleLogin() {
         const user = document.getElementById('username').value;
         const pass = document.getElementById('password').value;
         const errorMsg = document.getElementById('login-error');
 
-        if (user === this.USERNAME && pass === this.PASSWORD) {
+        if (this.hashStr(user) === this.EXPECTED_USER_HASH && this.hashStr(pass) === this.EXPECTED_PASS_HASH) {
             this.isLoggedIn = true;
             sessionStorage.setItem('admin_logged_in', 'true');
             document.getElementById('admin-login-btn').innerHTML = '<i class="ri-dashboard-line"></i>';
