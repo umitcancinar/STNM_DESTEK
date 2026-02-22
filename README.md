@@ -44,6 +44,6 @@ Fırat Üniversitesi, Yazılım Mühendisliği
 
 Proje hakkında detaylı bilgi almak, geri bildirimde bulunmak veya diğer çalışmalarıma göz atmak için bana aşağıdaki kanallardan ulaşabilirsiniz:
 
-**Kişisel Web Sitem:** [umitcan cinar](umitcancinar.me)
+**Kişisel Web Sitem:** [umitcancinar.me](https://umitcancinar.me)
 
 E-posta: admin@umitcancinar.me
