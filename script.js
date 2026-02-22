@@ -152,6 +152,7 @@ class App {
     }
 
     renderAll() {
+        const data = this.getData();
         this.renderApplications(data.applications);
         this.renderProjects(data.projects);
         this.renderTasks(data.tasks);
