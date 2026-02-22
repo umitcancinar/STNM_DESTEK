@@ -36,12 +36,14 @@ Proje tamamen istemci tarafında (client-side) çalıştığı için herhangi bi
    ```bash
    git clone [https://github.com/umitcancinar/STNM_DESTEK.git](https://github.com/umitcancinar/STNM_DESTEK.git)
 
-👨‍💻 Geliştirici
+👨‍💻 Geliştirici:
+
 Ümitcan Çınar
+
 Fırat Üniversitesi, Yazılım Mühendisliği
 
 Proje hakkında detaylı bilgi almak, geri bildirimde bulunmak veya diğer çalışmalarıma göz atmak için bana aşağıdaki kanallardan ulaşabilirsiniz:
 
-Portfolyo: umitcancinar.me
+**Kişisel Web Sitem:** [umitcan cinar](umitcancinar.me)
 
 E-posta: admin@umitcancinar.me
