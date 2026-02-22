@@ -5,15 +5,15 @@ const defaultData = {
         { id: 'app2', title: 'TEKNOFEST Başvuruları', image: 'https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png', desc: 'Teknofest yarışmaları için teknoloji geliştirme ve proje danışmanlığı başvuru süreci.', link: '905541563862' }
     ],
     projects: [
-        { id: 'proj1', title: 'Otonom Robotik Sistemleri', image: 'https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png', desc: 'Yapay zeka algoritmaları ile desteklenen otonom sürüş projemiz başarıyla tamamlandı.', link: '#' },
-        { id: 'proj2', title: 'Akıllı Tarım Uygulaması', image: 'https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png', desc: 'IoT tabanlı sensörlerle tarım verimliliğini artıran entegre otomasyon sistemi.', link: '#' }
+        { id: 'proj1', title: 'Savunma sanayi projeleri', image: 'https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png', desc: 'Milli savunma hamlesine bizler de katılıyor, okulumuzda öğrendiğimiz bilgileri pratiğe dökerek hayata geçiriyoruz.', link: '#' },
+        { id: 'proj2', title: 'Akıllı Savaş Teknolojileri', image: 'https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png', desc: 'IoT tabanlı sensörlerle silahlarımızın verimliliğini artıran entegre otomasyon sistemi.', link: '#' }
     ],
-    about: `<p><strong>STNM DESTEK</strong> olarak misyonumuz, genç girişimcilerin ve öğrencilerin yenilikçi fikirlerini hayata geçirebilmeleri için gerekli olan teknik danışmanlık, yönlendirme ve proje geliştirme desteklerini sağlamaktır.</p>
-            <p>Uzman kadromuzla birlikte, başta TÜBİTAK ve TEKNOFEST olmak üzere birçok ulusal ve uluslararası platformda projeler yürütmekteyiz. Geleceğin teknolojilerini geliştiren gençlere rehberlik etmek en büyük tutkumuzdur.</p>`,
+    about: `<p><strong>STNM</strong> olarak misyonumuz, savunma sanayi ürünlerine öğrendiğimiz teorik bilgileri pratiğe dönüştürerek katkı sağlamaktır.</p>
+            <p>Uzman kadromuzla birlikte, başta TÜBİTAK ve TEKNOFEST olmak üzere birçok ulusal ve uluslararası platformda projeler yürütmekteyiz. Geleceğin teknolojilerini geliştiren gençlerle ülkemiz savunma sanayine katkı sunmak en büyük tutkumuzdur.</p>`,
     contact: {
-        address: 'Üniversite Kampüsü, Teknoloji Geliştirme Bölgesi, Ar-Ge Binası No: 4',
+        address: 'Fırat Üniversitesi Teknokent, Merkez / Elazığ',
         phone: '0 554 156 38 62',
-        email: 'info@stnmdestek.com',
+        email: 'admin@umitcancinar.me',
         hours: 'Hafta İçi: 09:00 - 18:00'
     }
 };
