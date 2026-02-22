@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STNM DESTEK</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png"
+        type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="loader" class="loader-container">
+        <div class="loader-content">
+            <img src="https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png" alt="STNM Logo"
+                class="loader-logo">
+            <div class="spinner"></div>
+            <h2>STNM DESTEK</h2>
+        </div>
+    </div>
+
+    <header id="main-header">
+        <div class="container header-container">
+            <a href="#" class="logo" onclick="app.navigate('home')">
+                <img src="https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png"
+                    alt="STNM DESTEK">
+                <span>STNM DESTEK</span>
+            </a>
+
+            <nav id="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#" onclick="app.navigate('aktif-basvurular')" class="nav-item"
+                            data-target="aktif-basvurular">Aktif Başvurular</a></li>
+                    <li><a href="#" onclick="app.navigate('projelerimiz')" class="nav-item"
+                            data-target="projelerimiz">Projelerimiz</a></li>
+                    <li><a href="#" onclick="app.navigate('hakkimizda')" class="nav-item"
+                            data-target="hakkimizda">Hakkımızda</a></li>
+                    <li><a href="#" onclick="app.navigate('iletisim')" class="nav-item"
+                            data-target="iletisim">İletişim</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Temayı Değiştir">
+                    <i class="ri-moon-line"></i>
+                </button>
+                <button id="admin-login-btn" class="icon-btn" aria-label="Admin Paneli">
+                    <i class="ri-user-settings-line"></i>
+                </button>
+                <button id="mobile-menu-btn" class="icon-btn mobile-only" aria-label="Menü">
+                    <i class="ri-menu-3-line"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="home" class="page-section active">
+            <div class="container hero-section">
+                <div class="hero-content">
+                    <h1 class="animate-up">Geleceğe Birlikte<br><span class="gradient-text">Adım Atalım</span></h1>
+                    <p class="animate-up delay-1">STNM Destek platformuna hoş geldiniz. Yenilikçi projeler, aktif
+                        başvurular ve destek sistemleri ile daima yanınızdayız.</p>
+                    <div class="hero-buttons animate-up delay-2">
+                        <button class="btn btn-primary" onclick="app.navigate('aktif-basvurular')">Başvuruları İncele <i
+                                class="ri-arrow-right-line"></i></button>
+                        <button class="btn btn-secondary" onclick="app.navigate('projelerimiz')">Projelerimiz</button>
+                    </div>
+                </div>
+                <div class="hero-image animate-up delay-3">
+                    <div class="glass-card decorative">
+                        <img src="https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png"
+                            alt="STNM Hero Logo" class="floating-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aktif-basvurular" class="page-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="gradient-text">Aktif Başvurular</h2>
+                    <p>Şu anda açık olan programlarımıza ve destek süreçlerine aşağıdan başvurabilirsiniz.</p>
+                </div>
+                <div id="applications-container" class="grid-container"></div>
+            </div>
+        </section>
+
+        <section id="projelerimiz" class="page-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="gradient-text">Projelerimiz</h2>
+                    <p>Tamamlanmış ve devam eden yenilikçi projelerimize göz atın.</p>
+                </div>
+                <div id="projects-container" class="grid-container"></div>
+            </div>
+        </section>
+
+        <section id="hakkimizda" class="page-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="gradient-text">Hakkımızda</h2>
+                </div>
+                <div class="about-content glass-panel" id="about-content-container"></div>
+            </div>
+        </section>
+
+        <section id="iletisim" class="page-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="gradient-text">İletişim</h2>
+                    <p>Bizimle iletişime geçin, sorularınızı yanıtlayalım.</p>
+                </div>
+                <div class="contact-wrapper">
+                    <div class="contact-info glass-panel" id="contact-content-container"></div>
+                    <div class="contact-form glass-panel">
+                        <h3>Bize Mesaj Gönderin</h3>
+                        <form id="public-contact-form"
+                            onsubmit="event.preventDefault(); alert('Mesajınız başarıyla iletildi (Demo).'); this.reset();">
+                            <div class="form-group"><label>Adınız Soyadınız</label><input type="text" required
+                                    placeholder="Adınız Soyadınız"></div>
+                            <div class="form-group"><label>E-posta Adresiniz</label><input type="email" required
+                                    placeholder="ornek@mail.com"></div>
+                            <div class="form-group"><label>Mesajınız</label><textarea required rows="4"
+                                    placeholder="Mesajınızı buraya yazın..."></textarea></div>
+                            <button type="submit" class="btn btn-primary w-100">Gönder</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png" alt="STNM">
+                <span>STNM DESTEK</span>
+            </div>
+            <p>&copy; <span id="current-year"></span> STNM DESTEK. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-modal" onclick="app.closeModal('login-modal')">&times;</span>
+            <div class="modal-header">
+                <h2><i class="ri-shield-user-fill"></i> Yönetici Girişi</h2>
+            </div>
+            <div class="modal-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Kullanıcı Adı</label>
+                        <div class="input-with-icon"><i class="ri-user-line"></i><input type="text" id="username"
+                                required></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Şifre</label>
+                        <div class="input-with-icon"><i class="ri-lock-line"></i><input type="password" id="password"
+                                required></div>
+                    </div>
+                    <div id="login-error" class="error-msg"></div>
+                    <button type="submit" class="btn btn-primary w-100">Giriş Yap</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-modal" class="modal admin-modal-container">
+        <div class="modal-content glass-panel admin-panel-ui">
+            <span class="close-modal" onclick="app.closeModal('admin-modal')">&times;</span>
+            <div class="admin-sidebar">
+                <div class="admin-profile">
+                    <img src="https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png"
+                        alt="Admin">
+                    <div>
+                        <h3>Admin Paneli</h3><span class="badge">Yetkili</span>
+                    </div>
+                </div>
+                <ul class="admin-menu">
+                    <li class="active" onclick="admin.switchTab('admin-basvurular')"><i class="ri-file-list-3-line"></i>
+                        Aktif Başvurular</li>
+                    <li onclick="admin.switchTab('admin-projeler')"><i class="ri-briefcase-4-line"></i> Projelerimiz
+                    </li>
+                    <li onclick="admin.switchTab('admin-hakkimizda')"><i class="ri-information-line"></i> Hakkımızda
+                    </li>
+                    <li onclick="admin.switchTab('admin-iletisim')"><i class="ri-contacts-book-line"></i> İletişim</li>
+                </ul>
+                <button class="btn btn-danger logout-btn" onclick="admin.logout()"><i class="ri-logout-box-r-line"></i>
+                    Çıkış Yap</button>
+            </div>
+            <div class="admin-main">
+                <div id="admin-basvurular" class="admin-tab active">
+                    <div class="admin-header">
+                        <h2>Başvuru Yönetimi</h2><button class="btn btn-success"
+                            onclick="admin.openItemForm('application')"><i class="ri-add-line"></i> Yeni Ekle</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Görsel</th>
+                                    <th>Başlık</th>
+                                    <th>WhatsApp No</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-applications-list"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="admin-projeler" class="admin-tab">
+                    <div class="admin-header">
+                        <h2>Proje Yönetimi</h2><button class="btn btn-success"
+                            onclick="admin.openItemForm('project')"><i class="ri-add-line"></i> Yeni Ekle</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Görsel</th>
+                                    <th>Başlık</th>
+                                    <th>Link</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-projects-list"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="admin-hakkimizda" class="admin-tab">
+                    <div class="admin-header">
+                        <h2>Hakkımızda Yönetimi</h2>
+                    </div>
+                    <form id="admin-about-form" class="admin-form">
+                        <div class="form-group"><label>Metin (HTML eklenebilir)</label><textarea id="about-text-input"
+                                rows="10"></textarea></div>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+                </div>
+
+                <div id="admin-iletisim" class="admin-tab">
+                    <div class="admin-header">
+                        <h2>İletişim Yönetimi</h2>
+                    </div>
+                    <form id="admin-contact-form" class="admin-form">
+                        <div class="form-group"><label>Adres</label><input type="text" id="contact-address-input"></div>
+                        <div class="form-group"><label>Telefon</label><input type="text" id="contact-phone-input"></div>
+                        <div class="form-group"><label>E-posta</label><input type="email" id="contact-email-input">
+                        </div>
+                        <div class="form-group"><label>Çalışma Saatleri</label><input type="text"
+                                id="contact-hours-input"></div>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="item-modal" class="modal z-top">
+        <div class="modal-content glass-panel mini-modal">
+            <span class="close-modal" onclick="app.closeModal('item-modal')">&times;</span>
+            <div class="modal-header">
+                <h2 id="item-modal-title">Öğe Ekle/Düzenle</h2>
+            </div>
+            <div class="modal-body">
+                <form id="item-form">
+                    <input type="hidden" id="item-id"><input type="hidden" id="item-type">
+                    <div class="form-group"><label>Başlık</label><input type="text" id="item-title" required></div>
+                    <div class="form-group"><label>Görsel URL</label><input type="url" id="item-image"
+                            value="https://raw.githubusercontent.com/umitcancinar/STNM_DESTEK/main/STNM_IMAGES.png"
+                            required></div>
+                    <div class="form-group"><label>Açıklama</label><textarea id="item-desc" rows="3"
+                            required></textarea></div>
+                    <div class="form-group" id="item-link-group">
+                        <label id="item-link-label">Link</label>
+                        <input type="text" id="item-link" required>
+                        <small class="form-hint" id="item-link-hint"></small>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Cihaza Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
