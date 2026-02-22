@@ -61,10 +61,12 @@ class App {
         const themeBtn = document.getElementById('theme-toggle');
         const icon = themeBtn.querySelector('i');
 
-        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        // Varsayılan olarak hep "light" modda açılacak
+        if (savedTheme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             icon.className = 'ri-sun-line';
         } else {
+            // Hiç seçilmemişse veya 'light' seçilmişse hep beyaz (light) kalsın
             document.documentElement.setAttribute('data-theme', 'light');
             icon.className = 'ri-moon-line';
         }
